@@ -28,7 +28,7 @@ export default function App() {
         <TouchableOpacity>
           <View style={styles.botaoMenu}>
             <Ionicons name="wallet-outline" size={28} color="#333" />
-            <Text>Cofrinho</Text>
+            <Text>Carteira</Text>
           </View>
         </TouchableOpacity>
 
@@ -126,11 +126,19 @@ export default function App() {
           </Text>
         </View>
 
-
       </View>
+
+      <TouchableOpacity>
+        <View> 
+            <Text>Mostrar Mais</Text>
+        </View>
+      </TouchableOpacity>
+
 
       <StatusBar style="auto" />
     </View>
+
+
   );
 }
 
@@ -190,10 +198,13 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   botaoMenu: {
-    width: 60,
+    width: 70,
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#f0f0f0",
+    borderRadius: "50%",
+    marginTop: 7
 
   },
   tituloLancamentos:{
@@ -201,6 +212,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 15,
     color: '#333'
+
+  },lancamento: {
+    padding: 15,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 10,
+    marginBottom: 15,
+
+   
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
+  }, nomeLancamento: {
+    color: "#333",
+    fontSize: 16,
+    fontWeight: "bold"
+
+  },descricaoLancamento: {
+    fontSize: 13,
+    color: "#777"
+  
+  },valorEntrada: {
+    color: "#0b870d",
+    fontWeight: "bold",
+
+  },valorSaida: {
+    color: "#fb1f1f",
+    fontWeight: "bold"
   }
   
 });
