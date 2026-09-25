@@ -1,4 +1,5 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native"
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+
 import { useState } from "react";
 
 const dadosForm = {
@@ -13,15 +14,17 @@ export default function Home(){
 
     function aoDigitar(textoDigitado){
         console.log(`Texto digitado: ${textoDigitado}`);
+        setNomeestado(textoDigitado);
+        dadosForm.nome = textoDigitado;
     }
 
     function aoEnviar(){
-        //destructuring do objetopikama
+        //Destructuring do objeto
         const {nome, idade, senha, maisInfos} = dadosForm;
         console.log('Formulário enviado!: ', {
-            nome,
-            idade,
-            senha: '*'. repeat(senha.length),
+            nome, 
+            idade, 
+            senha: '*'.repeat(senha.length),
             maisInfos
         });
         //chamada de backend passando 'dadosForm'
@@ -29,53 +32,52 @@ export default function Home(){
 
     return(
         <View style={estilo.container}>
-            <Text style={estilo.textao}>
-
-            </Text>
-            <View style={estilo.containerinput}>
-                <Text style={estilo.label}> Nome: </Text>
-                <TextInput
+            <Text style={estilo.textao}>{nomeestado}</Text>
+            <View style={estilo.containerInput}>
+                <Text style={estilo.label}>Nome</Text>
+                <TextInput 
                     placeholder="Digite aqui o seu texto"
                     style={estilo.input}
-                    onChangeText={setNomeestado}
+                    onChangeText={aoDigitar}
                     value={nomeestado}
                 />
             </View>
-            <View style={estilo.containerinput}>
-                <Text style={estilo.label}> Idade: </Text>
-                <TextInput
-                    placeholder="Digite aqui o seu texto"
+
+            <View style={estilo.containerInput}>
+                <Text style={estilo.label}>Idade</Text>
+                <TextInput 
                     style={estilo.input}
-                    onChangeText={(texto) => (dadosForm.idade = texto)}
+                    placeholder="Digite a idade"
+                    onChangeText={(texto)=>(dadosForm.idade = texto)}
                     keyboardType="numeric"
                 />
             </View>
-             <View style={estilo.containerinput}>
-                <Text style={estilo.label}> Senha: </Text>
-                <TextInput
-                    placeholder="Digite aqui o seu texto"
+
+            <View style={estilo.containerInput}>
+                <Text style={estilo.label}>Senha</Text>
+                <TextInput 
                     style={estilo.input}
-                    onChangeText={(texto) => (dadosForm.senha = texto)}
+                    placeholder="Digite a sua senha"
+                    onChangeText={(texto)=>(dadosForm.senha = texto)}
                     secureTextEntry
                 />
             </View>
 
-             <View style={estilo.containerinput}>
-                <Text style={estilo.label}> Fale mais sobre você: </Text>
-                <TextInput
+            <View style={estilo.containerInput}>
+                <Text style={estilo.label}>Fale mais sobre você</Text>
+                <TextInput 
                     style={estilo.input}
                     placeholder="Conte mais sobre você"
-                    onChangeText={(texto) => (dadosForm.maisInfos = texto)}
+                    onChangeText={(texto)=>(dadosForm.maisInfos = texto)}
                     multiline
                     maxLength={60}
                 />
             </View>
-            <Button
+            <Button 
                 title="Enviar"
-                color="#118ab2"
+                color="#118AB2"
                 onPress={aoEnviar}
-                />
-
+            />
         </View>
     )
 }
@@ -87,8 +89,9 @@ const estilo = StyleSheet.create({
         alignItems: 'flex-start',
         backgroundColor: '#dadada',
         flexDirection: 'column',
+
     },
-    containerinput:{
+    containerInput:{
         flexDirection: 'row',
         gap: 8,
         alignItems: 'center',
@@ -98,15 +101,18 @@ const estilo = StyleSheet.create({
     input:{
         borderWidth: 1,
         borderColor: '#000',
+        borderRadius: 8,
         fontSize: 16,
-        paddingHorizontal: 12, 
+        paddingHorizontal: 12,
         paddingVertical: 10,
         backgroundColor: '#fff'
     },
     label: {
         fontSize: 14,
         fontWeight: 'bold',
-        gap: 8,
+        gap: 8
     },
-
+    textao: {
+        fontSize: 36
+    }
 })
