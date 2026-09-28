@@ -1,16 +1,15 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TabNavigator from "./TabNavigator";
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import TabNavigator from './TabNavigator';
 
 const Stack = createNativeStackNavigator();
 
-import TelaDetalhe from "../routes/TelaDetalhe";
+import TelaDetalhes from '../pages/TelaDetalhes';
 
 export default function RootNavigator(){
     return(
         <Stack.Navigator id='RootStack' screenOptions={{headerShown: false}}>
             <Stack.Screen name="Principal" component={TabNavigator} />
-            <Stack.Screen name="Detalhe" component={TelaDetalhe} />
+            <Stack.Screen name="Detalhes" component={TelaDetalhes} />
         </Stack.Navigator>
     )
-
 }
