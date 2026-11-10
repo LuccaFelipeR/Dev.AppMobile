@@ -16,10 +16,10 @@ export default function MainTabs() {
     return(
         <Tabs.Navigator screenOptions={{headerShown: false}}>
             <Tabs.Screen name="HomeStack" component={HomeStack} options={{title: "Home"}} />
-            <Tabs.Screen name="Search" component={Search} />
-            <Tabs.Screen name="Library" component={Library} />
-            <Tabs.Screen name="Premium" component={Premium} />
-            <Tabs.Screen name="CreatePlaylist" component={CreatePlaylist} />
+            <Tabs.Screen name="Search" component={Search} options={{title: "Search"}} />
+            <Tabs.Screen name="Library" component={Library} options={{title: "Library"}} />
+            <Tabs.Screen name="Premium" component={Premium} options={{title: "Premium"}} />
+            <Tabs.Screen name="CreatePlaylist" component={CreatePlaylist} options={{title: "Create Playlist"}} />
         </Tabs.Navigator>
     )
 }
